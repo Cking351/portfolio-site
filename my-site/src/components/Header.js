@@ -1,24 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { AppBar, Toolbar, Typography, makeStyles, Button } from '@material-ui/core';
 import { Link as RouterLink } from 'react-router-dom';
 
 const headersData = [
     {
-        label: "Listings",
-        href: "/listings",
+        label: "Home",
+        href: "/",
       },
       {
-        label: "Mentors",
-        href: "/mentors",
+        label: "Projects",
+        href: "/projects",
       },
       {
-        label: "My Account",
-        href: "/account",
-      },
-      {
-        label: "Log Out",
-        href: "/logout",
-      },
+          label: "Contact Me",
+          href: "/"
+      }
 ];
 
 const useStyles = makeStyles(() => ({
@@ -43,13 +39,15 @@ const useStyles = makeStyles(() => ({
         display: "flex",
         justifyContent: "space-between",
     },
+    drawerContainer: {
+        padding: "20px 30px",
+    },
 }));
 
 
 
 
 export default function Header() {
-
     const { header, logo, menuButton, toolbar } = useStyles();
 
     const displayDesktop = () => {
@@ -60,7 +58,6 @@ export default function Header() {
         </Toolbar>
         )
     }
-
 
     const headLogo = (
         <Typography variant='h6' component='h1' className={logo}>
